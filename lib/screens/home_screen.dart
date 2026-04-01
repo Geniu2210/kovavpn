@@ -76,15 +76,23 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
 
         return Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: isDark
-                  ? [const Color(0xFF1C1C1E), Colors.black]
-                  : [const Color(0xFFF2F2F7), Colors.white],
+            image: DecorationImage(
+              image: AssetImage('assets/images/kova_background.jpg'),
+              fit: BoxFit.cover,
+              opacity: 0.12,
             ),
           ),
-          child: SafeArea(
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: isDark
+                    ? [const Color(0xFF06060e), const Color(0xFF0a0a1a)]
+                    : [const Color(0xFF0e0e1e), const Color(0xFF06060e)],
+              ),
+            ),
+            child: SafeArea(
             bottom: false,
             child: Column(
               children: [
@@ -95,13 +103,33 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        'KOVA VPN',
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: AppTheme.primaryBlue,
-                        ),
+                      Row(
+                        children: [
+                          Container(
+                            width: 36,
+                            height: 36,
+                            decoration: BoxDecoration(
+                              color: AppTheme.primaryBlue.withOpacity(0.15),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Center(
+                              child: Icon(
+                                CupertinoIcons.shield_fill,
+                                size: 20,
+                                color: AppTheme.primaryBlue,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Text(
+                            'KOVA VPN',
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
@@ -142,22 +170,18 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     return AnimatedBuilder(
       animation: _pulseController,
       builder: (context, child) {
-        return Container(
+          return Container(
           margin: const EdgeInsets.fromLTRB(20, 10, 20, 0),
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
-            color: isDark ? const Color(0xFF1C1C1E) : Colors.white,
+            color: const Color(0xFF12121f),
+            border: Border.all(color: AppTheme.connectedGreen.withOpacity(0.2), width: 1),
             boxShadow: [
               BoxShadow(
                 color: AppTheme.connectedGreen.withOpacity(0.15 + (_pulseController.value * 0.08)),
                 blurRadius: 15,
                 spreadRadius: 1,
-              ),
-              BoxShadow(
-                color: Colors.black.withOpacity(isDark ? 0.25 : 0.06),
-                blurRadius: 12,
-                offset: const Offset(0, 3),
               ),
             ],
           ),
@@ -302,20 +326,20 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 );
               },
             ),
-            Container(
-              width: 140,
-              height: 140,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: isDark ? const Color(0xFF1C1C1E) : Colors.white,
-                boxShadow: [
-                  BoxShadow(
-                    color: (isConnected ? AppTheme.connectedGreen : AppTheme.primaryBlue).withOpacity(0.3),
-                    blurRadius: 20,
-                    spreadRadius: 2,
-                  ),
-                ],
-              ),
+              Container(
+                width: 140,
+                height: 140,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: const Color(0xFF0e0e1a),
+                  boxShadow: [
+                    BoxShadow(
+                      color: (isConnected ? AppTheme.connectedGreen : AppTheme.primaryBlue).withOpacity(0.3),
+                      blurRadius: 25,
+                      spreadRadius: 3,
+                    ),
+                  ],
+                ),
               child: Center(
                 child: _isConnecting
                     ? const CupertinoActivityIndicator(radius: 18)
@@ -352,25 +376,36 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       padding: const EdgeInsets.all(24),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: isDark ? const Color(0xFF1C1C1E) : Colors.white,
+        color: const Color(0xFF12121f),
+        border: Border.all(color: AppTheme.primaryBlue.withOpacity(0.2), width: 1),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(isDark ? 0.3 : 0.08),
-            blurRadius: 15,
+            color: AppTheme.primaryBlue.withOpacity(0.08),
+            blurRadius: 20,
             offset: const Offset(0, 5),
           ),
         ],
       ),
       child: Column(
         children: [
-          Icon(CupertinoIcons.globe, size: 48, color: AppTheme.systemGray),
-          const SizedBox(height: 12),
+          Container(
+            width: 64,
+            height: 64,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: AppTheme.primaryBlue.withOpacity(0.12),
+            ),
+            child: Center(
+              child: Icon(CupertinoIcons.globe, size: 32, color: AppTheme.primaryBlue),
+            ),
+          ),
+          const SizedBox(height: 16),
           Text(
             'No Server Selected',
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
-              color: isDark ? Colors.white : Colors.black,
+              color: Colors.white,
             ),
           ),
           const SizedBox(height: 4),
@@ -440,12 +475,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: isDark ? const Color(0xFF1C1C1E) : Colors.white,
-            border: isConnected ? Border.all(color: AppTheme.connectedGreen.withOpacity(0.5), width: 1.5) : null,
+            color: const Color(0xFF12121f),
+            border: isConnected ? Border.all(color: AppTheme.connectedGreen.withOpacity(0.4), width: 1.5) : null,
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(isDark ? 0.3 : 0.08),
-                blurRadius: 15,
+                color: (isConnected ? AppTheme.connectedGreen : AppTheme.primaryBlue).withOpacity(0.08),
+                blurRadius: 20,
                 offset: const Offset(0, 5),
               ),
             ],
@@ -476,7 +511,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w600,
-                              color: isDark ? Colors.white : Colors.black,
+                              color: Colors.white,
                             ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
@@ -540,10 +575,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
           padding: const EdgeInsets.all(20),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: isDark ? const Color(0xFF1C1C1E) : Colors.white,
+            color: const Color(0xFF12121f),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(isDark ? 0.2 : 0.06),
+                color: Colors.black.withOpacity(0.3),
                 blurRadius: 10,
                 offset: const Offset(0, 4),
               ),
@@ -556,10 +591,10 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   Container(
                     width: 56,
                     height: 56,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      color: isDark ? const Color(0xFF2C2C2E) : const Color(0xFFF2F2F7),
-                    ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        color: const Color(0xFF1a1a2e),
+                      ),
                     child: Center(
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(8),

@@ -42,9 +42,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: isDark
-              ? [const Color(0xFF1C1C1E), Colors.black]
-              : [const Color(0xFFF2F2F7), Colors.white],
+          colors: [const Color(0xFF06060e), const Color(0xFF0a0a1a)],
         ),
       ),
       child: SafeArea(
@@ -57,7 +55,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               style: TextStyle(
                 fontSize: 34,
                 fontWeight: FontWeight.bold,
-                color: isDark ? Colors.white : Colors.black,
+                color: Colors.white,
               ),
             ),
             const SizedBox(height: 24),
@@ -133,7 +131,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
         Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            color: isDark ? const Color(0xFF1C1C1E) : Colors.white,
+            color: const Color(0xFF12121f),
+            border: Border.all(color: Colors.white.withOpacity(0.06), width: 0.5),
           ),
           child: Column(
             children: children.asMap().entries.map((entry) {
@@ -207,7 +206,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title, style: TextStyle(fontSize: 16, color: isDark ? Colors.white : Colors.black)),
+                Text(title, style: TextStyle(fontSize: 16, color: Colors.white)),
                   Text(subtitle, style: TextStyle(fontSize: 12, color: AppTheme.systemGray)),
                 ],
               ),

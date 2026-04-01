@@ -767,9 +767,7 @@ class _ServersScreenState extends State<ServersScreen> with SingleTickerProvider
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: isDark
-              ? [const Color(0xFF1C1C1E), Colors.black]
-              : [const Color(0xFFF2F2F7), Colors.white],
+          colors: [const Color(0xFF06060e), const Color(0xFF0a0a1a)],
         ),
       ),
       child: SafeArea(
