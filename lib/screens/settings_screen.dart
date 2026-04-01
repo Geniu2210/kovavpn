@@ -4,8 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:kova_vpn/services/theme_service.dart';
 import 'package:kova_vpn/services/mmkv_manager.dart';
 import 'package:kova_vpn/theme/app_theme.dart';
-import 'package:kova_vpn/screens/per_app_proxy_screen.dart';
-import 'package:kova_vpn/screens/about_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -90,17 +88,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ], isDark),
             const SizedBox(height: 20),
-            _buildSection('Network', [
-              _buildNavigationTile(
-                'Per-App Proxy',
-                'Choose which apps use VPN',
-                CupertinoIcons.app_badge,
-                AppTheme.primaryBlue,
-                () => Navigator.push(context, CupertinoPageRoute(builder: (_) => const PerAppProxyScreen())),
-                isDark,
-              ),
-            ], isDark),
-            const SizedBox(height: 20),
             _buildSection('Appearance', [
               Consumer<ThemeService>(
                 builder: (context, themeService, child) {
@@ -121,8 +108,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 },
               ),
             ], isDark),
-            const SizedBox(height: 20),
-            _buildAboutSection(isDark),
           ],
         ),
       ),
@@ -231,38 +216,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildAboutSection(bool isDark) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 4, bottom: 8),
-          child: Text(
-            'ABOUT',
-            style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: AppTheme.systemGray, letterSpacing: 0.5),
-          ),
-        ),
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: isDark ? const Color(0xFF1C1C1E) : Colors.white,
-          ),
-          child: _buildNavigationTile(
-            'About KOVA VPN',
-            'Version 1.0.0',
-            CupertinoIcons.info_circle,
-            AppTheme.primaryBlue,
-            () => Navigator.push(
-              context,
-              CupertinoPageRoute(builder: (_) => const AboutScreen()),
-            ),
-            isDark,
-          ),
-        ),
-      ],
     );
   }
 

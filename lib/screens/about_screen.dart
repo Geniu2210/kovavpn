@@ -76,7 +76,7 @@ class AboutScreen extends StatelessWidget {
                 _buildSocialButton(
                   CupertinoIcons.paperplane_fill,
                   const Color(0xFF0088CC),
-                  () => _launchUrl('https://t.me/KovaVPN'),
+                  () => _launchUrl('https://t.me/KovaVpn'),
                 ),
                 const SizedBox(width: 16),
                 _buildGitHubButton(

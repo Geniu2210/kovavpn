@@ -5,9 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:kova_vpn/services/v2ray_service.dart';
 import 'package:kova_vpn/services/theme_service.dart';
 import 'package:kova_vpn/services/app_settings_service.dart';
-import 'package:kova_vpn/services/update_checker_service.dart';
 import 'package:kova_vpn/services/mmkv_manager.dart';
-import 'package:kova_vpn/widgets/update_dialog.dart';
 import 'package:kova_vpn/theme/app_theme.dart';
 import 'package:kova_vpn/screens/home_screen.dart';
 import 'package:kova_vpn/screens/servers_screen.dart';
@@ -78,20 +76,6 @@ class _MainNavigationState extends State<MainNavigation> {
   void initState() {
     super.initState();
     _initializeApp();
-    _checkForUpdates();
-  }
-
-  Future<void> _checkForUpdates() async {
-    await Future.delayed(const Duration(seconds: 2));
-    
-    final updateInfo = await UpdateCheckerService.checkForUpdates();
-    if (updateInfo != null && mounted) {
-      showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (context) => UpdateDialog(updateInfo: updateInfo),
-      );
-    }
   }
 
   Future<void> _initializeApp() async {
