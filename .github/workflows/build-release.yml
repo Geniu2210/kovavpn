@@ -36,26 +36,30 @@ jobs:
       - name: Install Dependencies
         run: flutter pub get
       
-      - name: Decode Keystore
+      - name: Decode Keystore (or create debug)
         env:
           KEYSTORE_BASE64: ${{ secrets.KEYSTORE_FILE_BASE64 }}
         run: |
-          echo "$KEYSTORE_BASE64" | base64 -d > android/app/release.keystore
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "$KEYSTORE_BASE64" | base64 -d > android/app/release.keystore
+          else
+            keytool -genkey -v -keystore android/app/release.keystore -alias kova_vpn -keyalg RSA -keysize 2048 -validity 10000 -storepass kova1234 -keypass kova1234 -dname "CN=KovaVPN, OU=KovaVPN, O=KovaVPN, L=Kiev, S=Kiev, C=UA"
+          fi
       
       - name: Build Release APKs (Split)
         env:
-          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD || 'kova1234' }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS || 'kova_vpn' }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD || 'kova1234' }}
         run: |
           flutter build apk --release --split-per-abi \
             --target-platform android-arm,android-arm64,android-x64
       
       - name: Build Universal APK
         env:
-          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD || 'kova1234' }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS || 'kova_vpn' }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD || 'kova1234' }}
         run: |
           flutter build apk --release
       
@@ -117,32 +121,10 @@ jobs:
             
             | Architecture | File | Devices |
             |-------------|------|---------|
-            | ARM64-v8a | `ZedSecure-${{ steps.version.outputs.version }}-arm64-v8a.apk` | Modern devices (2015+) - **Recommended** |
-            | ARMv7a | `ZedSecure-${{ steps.version.outputs.version }}-armeabi-v7a.apk` | Older devices |
-            | x86_64 | `ZedSecure-${{ steps.version.outputs.version }}-x86_64.apk` | Emulators/x86 devices |
-            | Universal | `ZedSecure-${{ steps.version.outputs.version }}-universal.apk` | All devices (larger size) |
-            
-            ### What's New in v1.8.1
-            
-            #### 🐛 Bug Fixes
-            - **Ping After Connection**: Fixed ping measurement showing "Measuring..." indefinitely
-              - Implemented IPC (Inter-Process Communication) for cross-process core access
-              - Changed from direct core access to Intent-based method
-              - Increased timeout from 3s to 15s for better reliability
-            - **Multiple Ping Requests**: Fixed excessive ping requests causing performance issues
-              - Moved GlobalKey to State class to prevent recreation on rebuild
-              - Now pings only once on connection with manual refresh button
-            - **Custom Config Connection**: Fixed custom JSON configs from subscriptions failing to connect
-            - **Custom Config Traffic Stats**: Fixed upload/download statistics for custom configs
-            - **Custom Config Ping Test**: Fixed ping test failure for custom JSON configs
-            - **Advanced Settings Dependencies**: Local DNS/Fake DNS dependency logic improved
-            
-            #### 🔧 Technical Changes
-            - Updated Xray-core to 26.2.4
-            - Implemented proper IPC for V2Ray Core communication
-            - Enhanced V2rayController with URL parameter support
-            - Improved config builder logic for custom JSON handling
-            - Added comprehensive logging for debugging
+            | ARM64-v8a | `KOVA-VPN-${{ steps.version.outputs.version }}-arm64-v8a.apk` | Modern devices (2015+) - **Recommended** |
+            | ARMv7a | `KOVA-VPN-${{ steps.version.outputs.version }}-armeabi-v7a.apk` | Older devices |
+            | x86_64 | `KOVA-VPN-${{ steps.version.outputs.version }}-x86_64.apk` | Emulators/x86 devices |
+            | Universal | `KOVA-VPN-${{ steps.version.outputs.version }}-universal.apk` | All devices (larger size) |
             
             ### Installation
             
@@ -151,14 +133,8 @@ jobs:
             3. Install the APK
             4. Grant VPN and notification permissions
             
-            ### Acknowledgments
-            
-            - [hev-socks5-tunnel](https://github.com/heiher/hev-socks5-tunnel/) - High-performance TUN implementation
-            
             ---
             
-            **Telegram**: https://t.me/CluvexStudio
-            
-            Developed by CluvexStudio
+            Developed by KOVA VPN Team
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
