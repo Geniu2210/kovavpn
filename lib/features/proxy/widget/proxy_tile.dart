@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:hiddify/core/router/dialog/dialog_notifier.dart';
-import 'package:hiddify/features/proxy/active/ip_widget.dart';
-import 'package:hiddify/gen/fonts.gen.dart';
-import 'package:hiddify/hiddifycore/generated/v2/hcore/hcore.pb.dart';
-import 'package:hiddify/utils/custom_loggers.dart';
-import 'package:hiddify/utils/platform_utils.dart';
+import 'package:kovavpn/core/router/dialog/dialog_notifier.dart';
+import 'package:kovavpn/features/proxy/active/ip_widget.dart';
+import 'package:kovavpn/gen/fonts.gen.dart';
+import 'package:kovavpn/hiddifycore/generated/v2/hcore/hcore.pb.dart';
+import 'package:kovavpn/utils/custom_loggers.dart';
+import 'package:kovavpn/utils/platform_utils.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ProxyTile extends HookConsumerWidget with PresLogger {

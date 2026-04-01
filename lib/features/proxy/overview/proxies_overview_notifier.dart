@@ -2,17 +2,17 @@ import 'dart:async';
 
 import 'package:dartx/dartx.dart';
 
-import 'package:hiddify/core/haptic/haptic_service.dart';
-import 'package:hiddify/core/localization/translations.dart';
-import 'package:hiddify/core/preferences/preferences_provider.dart';
-import 'package:hiddify/core/utils/preferences_utils.dart';
-import 'package:hiddify/features/connection/notifier/connection_notifier.dart';
-import 'package:hiddify/features/proxy/data/proxy_data_providers.dart';
-import 'package:hiddify/features/proxy/model/proxy_failure.dart';
-import 'package:hiddify/hiddifycore/generated/v2/hcore/hcore.pb.dart';
-import 'package:hiddify/hiddifycore/init_signal.dart';
-import 'package:hiddify/utils/riverpod_utils.dart';
-import 'package:hiddify/utils/utils.dart';
+import 'package:kovavpn/core/haptic/haptic_service.dart';
+import 'package:kovavpn/core/localization/translations.dart';
+import 'package:kovavpn/core/preferences/preferences_provider.dart';
+import 'package:kovavpn/core/utils/preferences_utils.dart';
+import 'package:kovavpn/features/connection/notifier/connection_notifier.dart';
+import 'package:kovavpn/features/proxy/data/proxy_data_providers.dart';
+import 'package:kovavpn/features/proxy/model/proxy_failure.dart';
+import 'package:kovavpn/hiddifycore/generated/v2/hcore/hcore.pb.dart';
+import 'package:kovavpn/hiddifycore/init_signal.dart';
+import 'package:kovavpn/utils/riverpod_utils.dart';
+import 'package:kovavpn/utils/utils.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'proxies_overview_notifier.g.dart';

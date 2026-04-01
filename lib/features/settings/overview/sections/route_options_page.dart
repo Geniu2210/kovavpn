@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hiddify/core/localization/translations.dart';
-import 'package:hiddify/core/model/region.dart';
-import 'package:hiddify/core/preferences/general_preferences.dart';
-import 'package:hiddify/core/router/dialog/dialog_notifier.dart';
-import 'package:hiddify/features/per_app_proxy/model/per_app_proxy_mode.dart';
-import 'package:hiddify/features/per_app_proxy/overview/per_app_proxy_notifier.dart';
-import 'package:hiddify/features/settings/data/config_option_repository.dart';
-import 'package:hiddify/features/settings/widget/preference_tile.dart';
-import 'package:hiddify/singbox/model/singbox_config_enum.dart';
-import 'package:hiddify/utils/platform_utils.dart';
+import 'package:kovavpn/core/localization/translations.dart';
+import 'package:kovavpn/core/model/region.dart';
+import 'package:kovavpn/core/preferences/general_preferences.dart';
+import 'package:kovavpn/core/router/dialog/dialog_notifier.dart';
+import 'package:kovavpn/features/per_app_proxy/model/per_app_proxy_mode.dart';
+import 'package:kovavpn/features/per_app_proxy/overview/per_app_proxy_notifier.dart';
+import 'package:kovavpn/features/settings/data/config_option_repository.dart';
+import 'package:kovavpn/features/settings/widget/preference_tile.dart';
+import 'package:kovavpn/singbox/model/singbox_config_enum.dart';
+import 'package:kovavpn/utils/platform_utils.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class RouteOptionsPage extends HookConsumerWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hiddify/core/localization/translations.dart';
-import 'package:hiddify/core/router/dialog/dialog_notifier.dart';
-import 'package:hiddify/core/utils/preferences_utils.dart';
-import 'package:hiddify/features/settings/notifier/battery_optimization/battery_optimizations_notifier.dart';
+import 'package:kovavpn/core/localization/translations.dart';
+import 'package:kovavpn/core/router/dialog/dialog_notifier.dart';
+import 'package:kovavpn/core/utils/preferences_utils.dart';
+import 'package:kovavpn/features/settings/notifier/battery_optimization/battery_optimizations_notifier.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ValuePreferenceWidget<T> extends HookConsumerWidget {

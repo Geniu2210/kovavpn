@@ -1,11 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:hiddify/core/http_client/dio_http_client.dart';
-import 'package:hiddify/core/http_client/http_client_provider.dart';
-import 'package:hiddify/core/model/region.dart';
-import 'package:hiddify/core/preferences/general_preferences.dart';
-import 'package:hiddify/features/per_app_proxy/model/per_app_proxy_mode.dart';
-import 'package:hiddify/features/settings/data/config_option_repository.dart';
-import 'package:hiddify/utils/utils.dart';
+import 'package:kovavpn/core/http_client/dio_http_client.dart';
+import 'package:kovavpn/core/http_client/http_client_provider.dart';
+import 'package:kovavpn/core/model/region.dart';
+import 'package:kovavpn/core/preferences/general_preferences.dart';
+import 'package:kovavpn/features/per_app_proxy/model/per_app_proxy_mode.dart';
+import 'package:kovavpn/features/settings/data/config_option_repository.dart';
+import 'package:kovavpn/utils/utils.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 enum AutoSelectionResult {

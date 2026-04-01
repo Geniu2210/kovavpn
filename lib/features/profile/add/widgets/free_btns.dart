@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:hiddify/core/localization/locale_preferences.dart';
-import 'package:hiddify/core/localization/translations.dart';
-import 'package:hiddify/core/model/constants.dart';
-import 'package:hiddify/core/router/dialog/dialog_notifier.dart';
-import 'package:hiddify/features/profile/add/widgets/free_btn.dart';
-import 'package:hiddify/features/profile/model/profile_entity.dart';
-import 'package:hiddify/features/profile/notifier/profile_notifier.dart';
-import 'package:hiddify/features/settings/data/config_option_repository.dart';
+import 'package:kovavpn/core/localization/locale_preferences.dart';
+import 'package:kovavpn/core/localization/translations.dart';
+import 'package:kovavpn/core/model/constants.dart';
+import 'package:kovavpn/core/router/dialog/dialog_notifier.dart';
+import 'package:kovavpn/features/profile/add/widgets/free_btn.dart';
+import 'package:kovavpn/features/profile/model/profile_entity.dart';
+import 'package:kovavpn/features/profile/notifier/profile_notifier.dart';
+import 'package:kovavpn/features/settings/data/config_option_repository.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class FreeBtns extends ConsumerWidget {
