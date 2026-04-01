@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.kova.vpn"
+    namespace = "com.kovavpn.app"
     compileSdk = 36
     ndkVersion = "29.0.14206865"
 
@@ -19,7 +19,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.kova.vpn"
+        applicationId = "com.kovavpn.app"
         minSdk = flutter.minSdkVersion
         targetSdk = 36
         versionCode = 1
