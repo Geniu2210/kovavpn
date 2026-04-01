@@ -87,10 +87,11 @@ class V2RayService extends ChangeNotifier {
       final configs = await loadConfigs();
       if (configs.isEmpty) {
         const String kovaDefaultServer = 'vless://YOUR_UUID@YOUR_SERVER:443?type=tcp&security=reality&flow=xtls-rprx-vision#KOVA-Default';
-        final parsed = await parseConfig(kovaDefaultServer);
-        if (parsed != null) {
-          await saveConfigs([parsed]);
-          await setSelectedConfigId(parsed.id);
+        final parsed = _parseContent(kovaDefaultServer, source: 'manual');
+        if (parsed.isNotEmpty) {
+          await saveConfigs(parsed);
+          MmkvManager.encodeSettings('selected_config_id', parsed.first.id);
+          notifyListeners();
           debugPrint('KOVA: Default server added');
         }
       }
