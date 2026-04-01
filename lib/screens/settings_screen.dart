@@ -2,16 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:zedsecure/services/v2ray_service.dart';
-import 'package:zedsecure/services/theme_service.dart';
-import 'package:zedsecure/services/mmkv_manager.dart';
-import 'package:zedsecure/theme/app_theme.dart';
-import 'package:zedsecure/screens/per_app_proxy_screen.dart';
-import 'package:zedsecure/screens/advanced_settings_screen.dart';
-import 'package:zedsecure/screens/about_screen.dart';
-import 'dart:io';
-import 'dart:convert';
-import 'package:path_provider/path_provider.dart';
+import 'package:kova_vpn/services/v2ray_service.dart';
+import 'package:kova_vpn/services/theme_service.dart';
+import 'package:kova_vpn/services/mmkv_manager.dart';
+import 'package:kova_vpn/theme/app_theme.dart';
+import 'package:kova_vpn/screens/per_app_proxy_screen.dart';
+import 'package:kova_vpn/screens/about_screen.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -117,17 +113,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(height: 20),
             _buildSection('Network', [
               _buildNavigationTile(
-                'Advanced Settings',
-                'Mux, Fragment, DNS & more',
-                CupertinoIcons.slider_horizontal_3,
-                const Color(0xFF5856D6),
-                () => Navigator.push(
-                  context,
-                  CupertinoPageRoute(builder: (_) => const AdvancedSettingsScreen()),
-                ),
-                isDark,
-              ),
-              _buildNavigationTile(
                 'Per-App Proxy',
                 'Choose which apps use VPN',
                 CupertinoIcons.app_badge,
@@ -156,13 +141,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   );
                 },
               ),
-            ], isDark),
-            const SizedBox(height: 20),
-            _buildSection('Data', [
-              _buildActionTile('Backup Configs', 'Export all configs', CupertinoIcons.cloud_upload_fill, Colors.teal, _backupConfigs, isDark),
-              _buildActionTile('Restore Configs', 'Import from backup', CupertinoIcons.cloud_download_fill, Colors.cyan, _restoreConfigs, isDark),
-              _buildActionTile('Clear Cache', 'Clear cached data', CupertinoIcons.trash, Colors.orange, _clearCache, isDark),
-              _buildActionTile('Clear All Data', 'Reset everything', CupertinoIcons.delete, AppTheme.disconnectedRed, _clearAllData, isDark),
             ], isDark),
             const SizedBox(height: 20),
             _buildAboutSection(isDark),
@@ -327,8 +305,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
             color: isDark ? const Color(0xFF1C1C1E) : Colors.white,
           ),
           child: _buildNavigationTile(
-            'About ZedSecure',
-            'Version 1.8.1 • Build 2026',
+            'About KOVA VPN',
+            'Version 1.0.0',
             CupertinoIcons.info_circle,
             AppTheme.primaryBlue,
             () => Navigator.push(
@@ -340,11 +318,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
         ),
       ],
     );
-  }
-
-  Future<void> _copyToClipboard(String text) async {
-    await Clipboard.setData(ClipboardData(text: text));
-    _showSnackBar('Link Copied', 'GitHub link copied to clipboard');
   }
 
   Future<void> _showThemeSelector(ThemeService themeService) async {

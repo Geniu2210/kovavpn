@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
-import 'package:zedsecure/services/v2ray_service.dart';
-import 'package:zedsecure/services/theme_service.dart';
-import 'package:zedsecure/models/subscription.dart';
-import 'package:zedsecure/models/v2ray_config.dart';
-import 'package:zedsecure/theme/app_theme.dart';
+import 'package:kova_vpn/services/v2ray_service.dart';
+import 'package:kova_vpn/services/theme_service.dart';
+import 'package:kova_vpn/models/subscription.dart';
+import 'package:kova_vpn/models/v2ray_config.dart';
+import 'package:kova_vpn/theme/app_theme.dart';
 
 class SubscriptionsScreen extends StatefulWidget {
   const SubscriptionsScreen({super.key});

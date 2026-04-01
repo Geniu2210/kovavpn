@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:zedsecure/theme/app_theme.dart';
+import 'package:kova_vpn/theme/app_theme.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 

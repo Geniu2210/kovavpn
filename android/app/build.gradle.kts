@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.zedsecure.vpn"
+    namespace = "com.kova.vpn"
     compileSdk = 36
     ndkVersion = "29.0.14206865"
 
@@ -19,11 +19,11 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.zedsecure.vpn"
+        applicationId = "com.kova.vpn"
         minSdk = flutter.minSdkVersion
         targetSdk = 36
-        versionCode = 10
-        versionName = "1.8.1"
+        versionCode = 1
+        versionName = "1.0.0"
 
         manifestPlaceholders.put("io.flutter.embedding.android.EnableImpeller", "false")
         

@@ -48,7 +48,7 @@ class PingResult {
 }
 
 class NativePingService {
-  static const MethodChannel _channel = MethodChannel('com.zedsecure.vpn/ping');
+  static const MethodChannel _channel = MethodChannel('com.kova.vpn/ping');
 
   static final Map<String, PingResult> _pingCache = {};
   static final Map<String, bool> _pingInProgress = {};

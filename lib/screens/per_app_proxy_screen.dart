@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'package:zedsecure/services/mmkv_manager.dart';
-import 'package:zedsecure/theme/app_theme.dart';
+import 'package:kova_vpn/services/mmkv_manager.dart';
+import 'package:kova_vpn/theme/app_theme.dart';
 
 class PerAppProxyScreen extends StatefulWidget {
   const PerAppProxyScreen({super.key});
@@ -19,7 +19,7 @@ class _PerAppProxyScreenState extends State<PerAppProxyScreen> {
   String _searchQuery = '';
   String? _errorMessage;
 
-  static const MethodChannel _appListChannel = MethodChannel('com.zedsecure.vpn/app_list');
+  static const MethodChannel _appListChannel = MethodChannel('com.kova.vpn/app_list');
 
   @override
   void initState() {

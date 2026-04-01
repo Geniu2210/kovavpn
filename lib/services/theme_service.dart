@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zedsecure/services/mmkv_manager.dart';
+import 'package:kova_vpn/services/mmkv_manager.dart';
 
 class ThemeService extends ChangeNotifier {
   ThemeMode _themeMode = ThemeMode.system;

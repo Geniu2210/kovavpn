@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:zedsecure/services/update_checker_service.dart';
-import 'package:zedsecure/theme/app_theme.dart';
+import 'package:kova_vpn/services/update_checker_service.dart';
+import 'package:kova_vpn/theme/app_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UpdateDialog extends StatelessWidget {

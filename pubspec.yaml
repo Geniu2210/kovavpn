@@ -1,8 +1,8 @@
-name: zedsecure
-description: "A professional VPN application with iOS-style UI design"
+name: kova_vpn
+description: "KOVA VPN - Secure and fast VPN application"
 publish_to: 'none'
 
-version: 1.8.1+10
+version: 1.0.0+1
 
 environment:
   sdk: '>=3.9.0 <4.0.0'
@@ -47,11 +47,12 @@ flutter:
   
   assets:
     - assets/flags/
-    - assets/images/
+    - assets/images/kova_background.jpg
+    - assets/images/kova_icon.png
 
 flutter_launcher_icons:
   android: true
   ios: false
-  image_path: "ZedSecureicon.png"
-  adaptive_icon_background: "#00D9E1"
-  adaptive_icon_foreground: "ZedSecureicon.png"
+  image_path: "assets/images/kova_icon.png"
+  adaptive_icon_background: "#06060e"
+  adaptive_icon_foreground: "assets/images/kova_icon.png"

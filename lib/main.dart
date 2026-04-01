@@ -2,17 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:zedsecure/services/v2ray_service.dart';
-import 'package:zedsecure/services/theme_service.dart';
-import 'package:zedsecure/services/app_settings_service.dart';
-import 'package:zedsecure/services/update_checker_service.dart';
-import 'package:zedsecure/services/mmkv_manager.dart';
-import 'package:zedsecure/widgets/update_dialog.dart';
-import 'package:zedsecure/theme/app_theme.dart';
-import 'package:zedsecure/screens/home_screen.dart';
-import 'package:zedsecure/screens/servers_screen.dart';
-import 'package:zedsecure/screens/subscriptions_screen.dart';
-import 'package:zedsecure/screens/settings_screen.dart';
+import 'package:kova_vpn/services/v2ray_service.dart';
+import 'package:kova_vpn/services/theme_service.dart';
+import 'package:kova_vpn/services/app_settings_service.dart';
+import 'package:kova_vpn/services/update_checker_service.dart';
+import 'package:kova_vpn/services/mmkv_manager.dart';
+import 'package:kova_vpn/widgets/update_dialog.dart';
+import 'package:kova_vpn/theme/app_theme.dart';
+import 'package:kova_vpn/screens/home_screen.dart';
+import 'package:kova_vpn/screens/servers_screen.dart';
+import 'package:kova_vpn/screens/subscriptions_screen.dart';
+import 'package:kova_vpn/screens/settings_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
       child: Consumer<ThemeService>(
         builder: (context, themeService, child) {
           return MaterialApp(
-            title: 'ZedSecure VPN',
+            title: 'KOVA VPN',
             themeMode: themeService.themeMode,
             darkTheme: AppTheme.darkTheme(),
             theme: AppTheme.lightTheme(),

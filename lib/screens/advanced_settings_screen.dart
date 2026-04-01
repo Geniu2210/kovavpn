@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
-import 'package:zedsecure/services/app_settings_service.dart';
-import 'package:zedsecure/models/app_settings.dart';
-import 'package:zedsecure/theme/app_theme.dart';
+import 'package:kova_vpn/services/app_settings_service.dart';
+import 'package:kova_vpn/models/app_settings.dart';
+import 'package:kova_vpn/theme/app_theme.dart';
 
 class AdvancedSettingsScreen extends StatefulWidget {
   const AdvancedSettingsScreen({super.key});

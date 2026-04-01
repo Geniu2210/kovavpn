@@ -5,11 +5,11 @@ import 'dart:math' as math;
 import 'dart:async';
 import 'package:provider/provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:zedsecure/services/v2ray_service.dart';
-import 'package:zedsecure/services/country_detector.dart';
-import 'package:zedsecure/services/log_service.dart';
-import 'package:zedsecure/models/v2ray_config.dart';
-import 'package:zedsecure/theme/app_theme.dart';
+import 'package:kova_vpn/services/v2ray_service.dart';
+import 'package:kova_vpn/services/country_detector.dart';
+import 'package:kova_vpn/services/log_service.dart';
+import 'package:kova_vpn/models/v2ray_config.dart';
+import 'package:kova_vpn/theme/app_theme.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -93,39 +93,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      GestureDetector(
-                        onTap: () => _showLogViewer(context, isDark),
-                        child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                          decoration: BoxDecoration(
-                            color: isDark ? const Color(0xFF1C1C1E) : Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(
-                              color: AppTheme.primaryBlue.withOpacity(0.3),
-                              width: 1,
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                CupertinoIcons.doc_text,
-                                size: 16,
-                                color: AppTheme.primaryBlue,
-                              ),
-                              const SizedBox(width: 6),
-                              Text(
-                                'Logs',
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  color: AppTheme.primaryBlue,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ],
-                          ),
+                      Text(
+                        'KOVA VPN',
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: AppTheme.primaryBlue,
                         ),
                       ),
                     ],

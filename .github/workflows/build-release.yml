@@ -65,53 +65,53 @@ jobs:
           if [ "${{ github.ref_type }}" == "tag" ]; then
             VERSION="${{ github.ref_name }}"
           else
-            VERSION="v1.8.1"
+            VERSION="v1.0.0"
           fi
           echo "version=$VERSION" >> $GITHUB_OUTPUT
       
       - name: Prepare Release Files
         run: |
           mkdir -p release-apks
-          cp build/app/outputs/flutter-apk/app-arm64-v8a-release.apk release-apks/ZedSecure-${{ steps.version.outputs.version }}-arm64-v8a.apk
-          cp build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk release-apks/ZedSecure-${{ steps.version.outputs.version }}-armeabi-v7a.apk
-          cp build/app/outputs/flutter-apk/app-x86_64-release.apk release-apks/ZedSecure-${{ steps.version.outputs.version }}-x86_64.apk
-          cp build/app/outputs/flutter-apk/app-release.apk release-apks/ZedSecure-${{ steps.version.outputs.version }}-universal.apk
+          cp build/app/outputs/flutter-apk/app-arm64-v8a-release.apk release-apks/KOVA-VPN-${{ steps.version.outputs.version }}-arm64-v8a.apk
+          cp build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk release-apks/KOVA-VPN-${{ steps.version.outputs.version }}-armeabi-v7a.apk
+          cp build/app/outputs/flutter-apk/app-x86_64-release.apk release-apks/KOVA-VPN-${{ steps.version.outputs.version }}-x86_64.apk
+          cp build/app/outputs/flutter-apk/app-release.apk release-apks/KOVA-VPN-${{ steps.version.outputs.version }}-universal.apk
       
       - name: Upload ARM64 APK
         uses: actions/upload-artifact@v4
         with:
-          name: ZedSecure-arm64-v8a
-          path: release-apks/ZedSecure-${{ steps.version.outputs.version }}-arm64-v8a.apk
+          name: KOVA-VPN-arm64-v8a
+          path: release-apks/KOVA-VPN-${{ steps.version.outputs.version }}-arm64-v8a.apk
       
       - name: Upload ARMv7 APK
         uses: actions/upload-artifact@v4
         with:
-          name: ZedSecure-armeabi-v7a
-          path: release-apks/ZedSecure-${{ steps.version.outputs.version }}-armeabi-v7a.apk
+          name: KOVA-VPN-armeabi-v7a
+          path: release-apks/KOVA-VPN-${{ steps.version.outputs.version }}-armeabi-v7a.apk
       
       - name: Upload x86_64 APK
         uses: actions/upload-artifact@v4
         with:
-          name: ZedSecure-x86_64
-          path: release-apks/ZedSecure-${{ steps.version.outputs.version }}-x86_64.apk
+          name: KOVA-VPN-x86_64
+          path: release-apks/KOVA-VPN-${{ steps.version.outputs.version }}-x86_64.apk
       
       - name: Upload Universal APK
         uses: actions/upload-artifact@v4
         with:
-          name: ZedSecure-universal
-          path: release-apks/ZedSecure-${{ steps.version.outputs.version }}-universal.apk
+          name: KOVA-VPN-universal
+          path: release-apks/KOVA-VPN-${{ steps.version.outputs.version }}-universal.apk
       
       - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            release-apks/ZedSecure-${{ steps.version.outputs.version }}-arm64-v8a.apk
-            release-apks/ZedSecure-${{ steps.version.outputs.version }}-armeabi-v7a.apk
-            release-apks/ZedSecure-${{ steps.version.outputs.version }}-x86_64.apk
-            release-apks/ZedSecure-${{ steps.version.outputs.version }}-universal.apk
+            release-apks/KOVA-VPN-${{ steps.version.outputs.version }}-arm64-v8a.apk
+            release-apks/KOVA-VPN-${{ steps.version.outputs.version }}-armeabi-v7a.apk
+            release-apks/KOVA-VPN-${{ steps.version.outputs.version }}-x86_64.apk
+            release-apks/KOVA-VPN-${{ steps.version.outputs.version }}-universal.apk
           body: |
-            ## ZedSecure VPN ${{ steps.version.outputs.version }}
+            ## KOVA VPN ${{ steps.version.outputs.version }}
             
             ### Downloads
             

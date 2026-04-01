@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:zedsecure/models/v2ray_config.dart';
-import 'package:zedsecure/models/app_settings.dart';
-import 'package:zedsecure/services/v2ray_service.dart';
-import 'package:zedsecure/services/v2ray_config_builder.dart';
-import 'package:zedsecure/theme/app_theme.dart';
-import 'package:zedsecure/screens/config_viewer_screen.dart';
+import 'package:kova_vpn/models/v2ray_config.dart';
+import 'package:kova_vpn/models/app_settings.dart';
+import 'package:kova_vpn/services/v2ray_service.dart';
+import 'package:kova_vpn/services/v2ray_config_builder.dart';
+import 'package:kova_vpn/theme/app_theme.dart';
+import 'package:kova_vpn/screens/config_viewer_screen.dart';
 import 'dart:convert';
 
 class EditConfigScreen extends StatefulWidget {

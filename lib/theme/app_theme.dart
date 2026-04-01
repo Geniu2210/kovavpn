@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'dart:ui';
 
 class AppTheme {
-  static const Color primaryBlue = Color(0xFF007AFF);
+  static const Color primaryBlue = Color(0xFFA855F7);
   static const Color connectedGreen = Color(0xFF34C759);
   static const Color disconnectedRed = Color(0xFFFF3B30);
   static const Color warningOrange = Color(0xFFFF9500);
@@ -18,7 +18,7 @@ class AppTheme {
     return ThemeData(
       brightness: Brightness.light,
       primaryColor: primaryBlue,
-      scaffoldBackgroundColor: systemGray6,
+      scaffoldBackgroundColor: const Color(0xFF06060e),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -40,7 +40,7 @@ class AppTheme {
     return ThemeData(
       brightness: Brightness.dark,
       primaryColor: primaryBlue,
-      scaffoldBackgroundColor: Colors.black,
+      scaffoldBackgroundColor: const Color(0xFF06060e),
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
         elevation: 0,

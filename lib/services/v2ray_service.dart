@@ -4,13 +4,13 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_v2ray_client/flutter_v2ray.dart';
 import 'package:http/http.dart' as http;
-import 'package:zedsecure/models/v2ray_config.dart';
-import 'package:zedsecure/models/subscription.dart';
-import 'package:zedsecure/models/app_settings.dart';
-import 'package:zedsecure/services/v2ray_config_builder.dart';
-import 'package:zedsecure/services/log_service.dart';
-import 'package:zedsecure/services/native_ping_service.dart';
-import 'package:zedsecure/services/mmkv_manager.dart';
+import 'package:kova_vpn/models/v2ray_config.dart';
+import 'package:kova_vpn/models/subscription.dart';
+import 'package:kova_vpn/models/app_settings.dart';
+import 'package:kova_vpn/services/v2ray_config_builder.dart';
+import 'package:kova_vpn/services/log_service.dart';
+import 'package:kova_vpn/services/native_ping_service.dart';
+import 'package:kova_vpn/services/mmkv_manager.dart';
 
 class V2RayService extends ChangeNotifier {
   bool _isInitialized = false;
@@ -77,7 +77,25 @@ class V2RayService extends ChangeNotifier {
       _isInitialized = true;
       await _loadDnsSettings();
       await _tryRestoreActiveConfig();
+      await _ensureDefaultServer();
       detectRealCountry();
+    }
+  }
+
+  Future<void> _ensureDefaultServer() async {
+    try {
+      final configs = await loadConfigs();
+      if (configs.isEmpty) {
+        const String kovaDefaultServer = 'vless://YOUR_UUID@YOUR_SERVER:443?type=tcp&security=reality&flow=xtls-rprx-vision#KOVA-Default';
+        final parsed = await parseConfig(kovaDefaultServer);
+        if (parsed != null) {
+          await saveConfigs([parsed]);
+          await setSelectedConfigId(parsed.id);
+          debugPrint('KOVA: Default server added');
+        }
+      }
+    } catch (e) {
+      debugPrint('KOVA: Error adding default server: $e');
     }
   }
 

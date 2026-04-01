@@ -1,4 +1,4 @@
-import 'package:zedsecure/services/country_detector.dart';
+import 'package:kova_vpn/services/country_detector.dart';
 
 class V2RayConfig {
   final String id;

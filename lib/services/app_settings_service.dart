@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import 'package:zedsecure/models/app_settings.dart';
-import 'package:zedsecure/services/mmkv_manager.dart';
+import 'package:kova_vpn/models/app_settings.dart';
+import 'package:kova_vpn/services/mmkv_manager.dart';
 
 class AppSettingsService extends ChangeNotifier {
   static const String _settingsKey = 'app_settings';

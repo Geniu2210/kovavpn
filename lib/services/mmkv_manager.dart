@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:mmkv/mmkv.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:zedsecure/models/v2ray_config.dart';
-import 'package:zedsecure/models/subscription.dart';
+import 'package:kova_vpn/models/v2ray_config.dart';
+import 'package:kova_vpn/models/subscription.dart';
 
 class MmkvManager {
   static MMKV? _mainStorage;

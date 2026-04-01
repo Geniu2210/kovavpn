@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:zedsecure/theme/app_theme.dart';
+import 'package:kova_vpn/theme/app_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutScreen extends StatelessWidget {
@@ -37,7 +37,7 @@ class AboutScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 40),
             Text(
-              'ZedSecure VPN',
+              'KOVA VPN',
               style: TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.bold,
@@ -61,7 +61,7 @@ class AboutScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  _buildInfoRow('App Version', '1.8.1 • Build 2026', isDark),
+                  _buildInfoRow('App Version', '1.0.0 • Build 2026', isDark),
                   const SizedBox(height: 16),
                   Divider(height: 1, color: isDark ? Colors.white12 : Colors.black12),
                   const SizedBox(height: 16),
@@ -76,11 +76,11 @@ class AboutScreen extends StatelessWidget {
                 _buildSocialButton(
                   CupertinoIcons.paperplane_fill,
                   const Color(0xFF0088CC),
-                  () => _launchUrl('https://t.me/CluvexStudio'),
+                  () => _launchUrl('https://t.me/KovaVPN'),
                 ),
                 const SizedBox(width: 16),
                 _buildGitHubButton(
-                  () => _launchUrl('https://github.com/CluvexStudio/ZedSecure'),
+                  () => _launchUrl('https://github.com/KovaVPN/Kova-VPN'),
                   context,
                 ),
               ],
@@ -95,7 +95,7 @@ class AboutScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    'ZedSecure VPN provides secure and private internet access with high-speed performance.',
+                    'KOVA VPN provides secure and private internet access with high-speed performance.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 14,
@@ -105,7 +105,7 @@ class AboutScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    '© 2026 CluvexStudio Development Team.\nAll rights reserved.',
+                    '© 2026 KOVA VPN Development Team.\nAll rights reserved.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 12,

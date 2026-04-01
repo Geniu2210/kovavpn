@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
-import 'package:zedsecure/models/app_settings.dart';
-import 'package:zedsecure/models/v2ray_config.dart';
+import 'package:kova_vpn/models/app_settings.dart';
+import 'package:kova_vpn/models/v2ray_config.dart';
 
 class V2RayConfigBuilder {
   static Map<String, dynamic> buildConfigForSpeedtest({

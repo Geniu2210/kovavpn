@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:flutter/foundation.dart';
-import 'package:zedsecure/services/mmkv_manager.dart';
+import 'package:kova_vpn/services/mmkv_manager.dart';
 
 class UpdateCheckerService {
   static const String _githubApiUrl = 'https://api.github.com/repos/CluvexStudio/ZedSecure/releases/latest';
